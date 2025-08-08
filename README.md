@@ -1,73 +1,26 @@
-# Welcome to your Lovable project
+Digital Lift Hub – Official Website
+A modern, responsive, and professional digital marketing agency website for Digital Lift Hub, built with cutting-edge web technologies for speed, accessibility, and user-friendliness.
 
-## Project info
+The site includes interactive quotation features, client agreement e-sign flow, portfolio showcase, and easy contact options. Designed for conversion optimization and mobile-first browsing.
 
-**URL**: https://lovable.dev/projects/6845162f-4605-4aa2-ae91-37cb36819326
+Live Preview
+🌐 URL: https://lovable.dev/projects/6845162f-4605-4aa2-ae91-37cb36819326
+(Final deployment will be hosted on Vercel with custom domain support)
 
-## How can I edit this code?
+Features
+Home Page – Hero banner, CTA buttons, service highlights, testimonials
 
-There are several ways of editing your application.
+About Us – Company mission, founders’ profiles
 
-**Use Lovable**
+Services – Full list of deliverables with interactive “Request Quote” buttons
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6845162f-4605-4aa2-ae91-37cb36819326) and start prompting.
+Quotation Page – Interactive calculator + downloadable PDF quotation
 
-Changes made via Lovable will be committed automatically to this repo.
+Client Agreement Page – Digital version of agreement with e-signature form
 
-**Use your preferred IDE**
+Portfolio – Case studies, embedded reels/videos, performance stats
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Contact Page – Formspree-powered form, Google Map embed, clickable contact info
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Extra Pages – FAQ, Blog (optional), Privacy Policy, 404 page, Sitemap
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/6845162f-4605-4aa2-ae91-37cb36819326) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
