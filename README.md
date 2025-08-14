@@ -7,7 +7,7 @@ The site includes interactive quotation features, client agreement e-sign flow, 
 ---
 
 ## Live Preview
-🌐 **URL:** [https://lovable.dev/projects/6845162f-4605-4aa2-ae91-37cb36819326](https://lovable.dev/projects/6845162f-4605-4aa2-ae91-37cb36819326)  
+🌐 **URL:** [https://digital-lift-hub.vercel.app/](https://digital-lift-hub.vercel.app/)
 *(Final deployment will be hosted on **Vercel** with custom domain support)*
 
 ---
