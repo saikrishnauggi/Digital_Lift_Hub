@@ -171,7 +171,7 @@ const Agreement = () => {
         </form>
 
         <p className="text-xs text-muted-foreground mt-2">
-          We are waiting for your mail.
+          Don't forgot to send your prefered qoute after contacting us.
         </p>
       </section>
     </main>
