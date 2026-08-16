@@ -21,6 +21,11 @@ const services = [
     icon: Globe,
   },
   {
+    title: "Website Maintenance",
+    description: "Ongoing updates, support, and care to keep your digital presence secure and smooth.",
+    icon: LayoutTemplate,
+  },
+  {
     title: "Social Media Marketing",
     description: "Content strategy, audience growth, and campaign execution that turns attention into leads.",
     icon: Megaphone,
@@ -39,11 +44,6 @@ const services = [
     title: "Performance Analytics",
     description: "Actionable reporting and optimization based on real data, not guesswork.",
     icon: BarChart3,
-  },
-  {
-    title: "Website Maintenance",
-    description: "Ongoing updates, support, and care to keep your digital presence secure and smooth.",
-    icon: LayoutTemplate,
   },
 ];
 
