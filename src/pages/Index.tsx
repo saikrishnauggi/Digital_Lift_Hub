@@ -41,6 +41,36 @@ const services = [
     icon: Video,
   },
   {
+    title: "Affiliate Marketing",
+    description: "Performance-driven partnerships that expand reach, trust, and customer acquisition efficiently.",
+    icon: TrendingUp,
+  },
+  {
+    title: "Influencer Marketing",
+    description: "Creator-led campaigns that boost credibility and bring your brand in front of the right audience.",
+    icon: Sparkles,
+  },
+  {
+    title: "Email Marketing",
+    description: "Lifecycle email campaigns and lead nurturing designed to increase retention and conversions.",
+    icon: BarChart3,
+  },
+  {
+    title: "SEO : Search Engine Optimization",
+    description: "Organic growth through technical, on-page, and content optimization that improves visibility.",
+    icon: Globe,
+  },
+  {
+    title: "Content Marketing",
+    description: "Value-led content strategy that builds authority, engagement, and long-term brand trust.",
+    icon: Megaphone,
+  },
+  {
+    title: "GTM : Go-to-Market",
+    description: "Launch positioning and campaign strategy designed for strong market entry and measurable traction.",
+    icon: TrendingUp,
+  },
+  {
     title: "Performance Analytics",
     description: "Actionable reporting and optimization based on real data, not guesswork.",
     icon: BarChart3,

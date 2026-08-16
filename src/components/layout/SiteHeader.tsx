@@ -20,7 +20,7 @@ const SiteHeader = () => {
           </div>
           <div>
             <div className="text-lg font-black tracking-tight text-slate-900">Digital Lift Hub</div>
-            <div className="text-[10px] uppercase tracking-[0.24em] text-slate-500">Growth Studio</div>
+            <div className="text-[10px] uppercase tracking-[0.24em] text-slate-500">Marketing Agency</div>
           </div>
         </Link>
 

@@ -12,6 +12,19 @@ const deliverableMapping = [
   { serviceKey: "Social Media Marketing", name: "Social Media Posts", qty: 6, unit: "per month" },
   { serviceKey: "Reels & Short Video Editing", name: "Reels Editing", qty: 4, unit: "per month" },
   { serviceKey: "Branding & Graphic Design", name: "Branding & Design", qty: 1, unit: "bundle" },
+  { serviceKey: "Affiliate Marketing", name: "Affiliate Campaign Setup", qty: 1, unit: "monthly" },
+  { serviceKey: "Influencer Marketing", name: "Influencer Collaboration Strategy", qty: 1, unit: "campaign" },
+  { serviceKey: "Email Marketing", name: "Email Funnel & Automation", qty: 1, unit: "monthly" },
+  { serviceKey: "SEO : Search Engine Optimization", name: "SEO Optimization Sprint", qty: 1, unit: "monthly" },
+  { serviceKey: "Content Marketing", name: "Content Calendar & Planning", qty: 1, unit: "monthly" },
+  { serviceKey: "GTM : Go-to-Market", name: "Go-to-Market Strategy", qty: 1, unit: "launch" },
+  { serviceKey: "SEM: Search Engine Marketing (Paid Google search ads)", name: "Google Search Ads Management", qty: 1, unit: "monthly" },
+  { serviceKey: "PPC: Pay-Per-Click (Paid advertising where you pay per click)", name: "PPC Campaign Management", qty: 1, unit: "monthly" },
+  { serviceKey: "SMO: Social Media Optimization (Organic social profile growth)", name: "Organic Social Profile Growth", qty: 1, unit: "monthly" },
+  { serviceKey: "ASO: App Store Optimization (Ranking apps in Apple/Google stores)", name: "App Store Optimization", qty: 1, unit: "monthly" },
+  { serviceKey: "ORM: Online Reputation Management (Managing reviews and PR)", name: "Reputation & Review Management", qty: 1, unit: "monthly" },
+  { serviceKey: "CRO: Conversion Rate Optimization (Improving website sales)", name: "Conversion Optimization Review", qty: 1, unit: "monthly" },
+  { serviceKey: "CTR: Click-Through Rate (Ad performance metrics)", name: "CTR Performance Review", qty: 1, unit: "monthly" },
   { serviceKey: "Marketing Strategy & Campaign Planning", name: "Strategy & Planning", qty: 1, unit: "monthly" },
   { serviceKey: "Analytics & Reporting", name: "Analytics Report", qty: 1, unit: "monthly" },
 ];
@@ -22,6 +35,19 @@ const services = [
   { key: "Social Media Marketing" },
   { key: "Reels & Short Video Editing" },
   { key: "Branding & Graphic Design" },
+  { key: "Affiliate Marketing" },
+  { key: "Influencer Marketing" },
+  { key: "Email Marketing" },
+  { key: "SEO : Search Engine Optimization" },
+  { key: "Content Marketing" },
+  { key: "GTM : Go-to-Market" },
+  { key: "SEM: Search Engine Marketing (Paid Google search ads)" },
+  { key: "PPC: Pay-Per-Click (Paid advertising where you pay per click)" },
+  { key: "SMO: Social Media Optimization (Organic social profile growth)" },
+  { key: "ASO: App Store Optimization (Ranking apps in Apple/Google stores)" },
+  { key: "ORM: Online Reputation Management (Managing reviews and PR)" },
+  { key: "CRO: Conversion Rate Optimization (Improving website sales)" },
+  { key: "CTR: Click-Through Rate (Ad performance metrics)" },
   { key: "Marketing Strategy & Campaign Planning" },
   { key: "Analytics & Reporting" },
 ];
@@ -52,21 +78,100 @@ const Quotation = () => {
   };
 
   const selectedServices = services.filter((s) => selected.has(s.key));
-  
+
   // Filter deliverables dynamically based on selected services
   const activeDeliverables = useMemo(() => {
     return deliverableMapping.filter((item) => selected.has(item.serviceKey));
   }, [selected]);
 
+  // Professional Multi-page PDF Generator with Headers, Footers & Proper Margins
   const downloadPdf = async () => {
     if (!quoteRef.current) return;
-    const canvas = await html2canvas(quoteRef.current, { scale: 2, backgroundColor: "#ffffff" });
-    const imgData = canvas.toDataURL("image/png");
+
+    const canvas = await html2canvas(quoteRef.current, {
+      scale: 2,
+      backgroundColor: "#ffffff",
+      useCORS: true,
+      logging: false,
+    });
+
     const pdf = new jsPDF({ orientation: "p", unit: "pt", format: "a4" });
     const pageWidth = pdf.internal.pageSize.getWidth();
-    const ratio = pageWidth / canvas.width;
-    const height = canvas.height * ratio;
-    pdf.addImage(imgData, "PNG", 0, 0, pageWidth, height);
+    const pageHeight = pdf.internal.pageSize.getHeight();
+
+    // Page Margins and Printable Dimensions
+    const marginX = 40;
+    const headerHeight = 45;
+    const footerHeight = 40;
+    const printWidth = pageWidth - marginX * 2;
+    const printHeight = pageHeight - headerHeight - footerHeight;
+
+    // Convert full canvas height to PDF unit scale
+    const totalContentHeightInPdf = (canvas.height * printWidth) / canvas.width;
+    const totalPages = Math.ceil(totalContentHeightInPdf / printHeight);
+
+    // Canvas slicing parameters
+    const sliceCanvasHeight = (printHeight * canvas.width) / printWidth;
+
+    for (let i = 0; i < totalPages; i++) {
+      if (i > 0) pdf.addPage();
+
+      // --- 1. HEADER (Pages after page 1 or all pages) ---
+      pdf.setFont("helvetica", "bold");
+      pdf.setFontSize(8);
+      pdf.setTextColor(100, 116, 139); // Slate-500
+      pdf.text("DIGITAL LIFT HUB — SERVICE SCOPE PROPOSAL", marginX, 28);
+
+      pdf.setFont("helvetica", "normal");
+      pdf.text("+91 93461 22148 | digitallifthubmarketing@gmail.com", pageWidth - marginX, 28, { align: "right" });
+
+      pdf.setDrawColor(226, 232, 240); // Slate-200 border
+      pdf.setLineWidth(0.75);
+      pdf.line(marginX, 34, pageWidth - marginX, 34);
+
+      // --- 2. SLICE & DRAW BODY CONTENT ---
+      const sourceY = i * sliceCanvasHeight;
+      const currentSliceHeight = Math.min(sliceCanvasHeight, canvas.height - sourceY);
+
+      // Create a temporary canvas for this page's slice
+      const pageCanvas = document.createElement("canvas");
+      pageCanvas.width = canvas.width;
+      pageCanvas.height = currentSliceHeight;
+
+      const pageCtx = pageCanvas.getContext("2d");
+      if (pageCtx) {
+        pageCtx.fillStyle = "#ffffff";
+        pageCtx.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
+        pageCtx.drawImage(
+          canvas,
+          0,
+          sourceY,
+          canvas.width,
+          currentSliceHeight,
+          0,
+          0,
+          canvas.width,
+          currentSliceHeight
+        );
+
+        const pageImgData = pageCanvas.toDataURL("image/png");
+        const renderedHeight = (currentSliceHeight * printWidth) / canvas.width;
+        pdf.addImage(pageImgData, "PNG", marginX, headerHeight, printWidth, renderedHeight, undefined, "FAST");
+      }
+
+      // --- 3. FOOTER ---
+      const footerY = pageHeight - 22;
+      pdf.setDrawColor(226, 232, 240);
+      pdf.setLineWidth(0.75);
+      pdf.line(marginX, footerY - 8, pageWidth - marginX, footerY - 8);
+
+      pdf.setFont("helvetica", "normal");
+      pdf.setFontSize(8);
+      pdf.setTextColor(148, 163, 184); // Slate-400
+      pdf.text("Confidential & Proprietary • Digital Lift Hub", marginX, footerY);
+      pdf.text(`Page ${i + 1} of ${totalPages}`, pageWidth - marginX, footerY, { align: "right" });
+    }
+
     pdf.save("Digital-Lift-Hub-Proposal.pdf");
   };
 
@@ -159,7 +264,7 @@ const Quotation = () => {
                   <img src="/lovable-uploads/0fa6793e-7bf9-4d2c-b832-b3306de285d8.png" alt="Digital Lift Hub logo" className="h-12 w-12" />
                   <div>
                     <div className="text-sm font-semibold text-slate-900">Digital Lift Hub</div>
-                    <div className="text-[10px] uppercase tracking-[0.25em] text-slate-500">Growth Studio</div>
+                    <div className="text-[10px] uppercase tracking-[0.25em] text-slate-500">Marketing Agency</div>
                   </div>
                 </div>
               </header>

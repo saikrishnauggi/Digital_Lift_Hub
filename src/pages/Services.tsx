@@ -5,10 +5,14 @@ import {
   CheckCircle2,
   Globe,
   LayoutTemplate,
+  MapPin,
   Megaphone,
+  MessageSquare,
   Palette,
   PencilRuler,
+  Shield,
   Sparkles,
+  TrendingUp,
   Video,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -38,6 +42,86 @@ const serviceList = [
     key: "Branding & Graphic Design",
     desc: "Logo systems, templates, posters, and cohesive visual assets that make your brand memorable.",
     icon: Palette,
+  },
+  {
+    key: "Affiliate Marketing",
+    desc: "Performance-led affiliate partnerships that widen reach and bring in qualified traffic at scale.",
+    icon: TrendingUp,
+  },
+  {
+    key: "Influencer Marketing",
+    desc: "Creator collaborations designed to build trust, boost awareness, and reach the right audience faster.",
+    icon: Sparkles,
+  },
+  {
+    key: "Email Marketing",
+    desc: "Lead nurturing and customer retention campaigns that turn interest into repeat business.",
+    icon: BarChart3,
+  },
+  {
+    key: "SEO : Search Engine Optimization",
+    desc: "Search visibility strategy that improves rankings, organic traffic, and long-term business growth.",
+    icon: Globe,
+  },
+  {
+    key: "Content Marketing",
+    desc: "Brand storytelling and content planning that builds authority, trust, and engagement across channels.",
+    icon: Megaphone,
+  },
+  {
+    key: "GTM : Go-to-Market",
+    desc: "Launch strategy and positioning support to help your product or service enter the market with confidence.",
+    icon: PencilRuler,
+  },
+  {
+    key: "SEM: Search Engine Marketing (Paid Google search ads)",
+    desc: "High-intent paid search campaigns that deliver immediate visibility and measurable leads.",
+    icon: BarChart3,
+  },
+  {
+    key: "PPC: Pay-Per-Click (Paid advertising where you pay per click)",
+    desc: "Return-focused paid campaigns built to generate clicks, leads, and sales with controlled spending.",
+    icon: TrendingUp,
+  },
+  {
+    key: "SMO: Social Media Optimization (Organic social profile growth)",
+    desc: "Profile and community optimization that strengthens brand presence and organic reach across platforms.",
+    icon: Megaphone,
+  },
+  {
+    key: "ASO: App Store Optimization (Ranking apps in Apple/Google stores)",
+    desc: "App visibility improvements that increase discovery, installs, and conversion within app stores.",
+    icon: Globe,
+  },
+  {
+    key: "ORM: Online Reputation Management (Managing reviews and PR)",
+    desc: "Reputation strategy that builds positive perception and protects your brand image online.",
+    icon: Shield,
+  },
+  {
+    key: "CRO: Conversion Rate Optimization (Improving website sales)",
+    desc: "Data-backed optimization focused on increasing sales, signups, and engagement from your visitors.",
+    icon: CheckCircle2,
+  },
+  {
+    key: "CTR: Click-Through Rate (Ad performance metrics)",
+    desc: "Performance tracking that improves ad quality and helps campaigns reach stronger click-through results.",
+    icon: BarChart3,
+  },
+  {
+    key: "Local SEO",
+    desc: "Geo-focused optimization that helps nearby customers discover your business and choose you first.",
+    icon: Globe,
+  },
+  {
+    key: "Geo-Targeted",
+    desc: "Location-based targeting designed to reach the right audiences in the right cities, regions, and pincodes.",
+    icon: MapPin,
+  },
+  {
+    key: "Pin-Code WhatsApp/SMS",
+    desc: "Direct local outreach and campaign messaging that helps businesses connect with highly relevant audiences.",
+    icon: MessageSquare,
   },
   {
     key: "Marketing Strategy & Campaign Planning",
