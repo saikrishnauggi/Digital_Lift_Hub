@@ -7,6 +7,7 @@ import {
   Instagram,
   Palette,
   Play,
+  Plus,
   Search,
   Sparkles,
   TrendingUp,
@@ -238,6 +239,7 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* YouTube Channels Section */}
       <section className="section-shell py-20">
         <div className="mb-10 flex items-center gap-3">
           <Youtube className="h-7 w-7 text-red-500" />
@@ -262,9 +264,16 @@ const Portfolio = () => {
               </div>
             </a>
           ))}
+
+          {/* +more Box for YouTube */}
+          <div className="flex flex-col justify-center items-center rounded-[1.5rem] border border-dashed border-red-300 bg-red-50/50 p-4 text-center transition hover:border-red-400 hover:bg-red-50">
+            <p className="text-base font-bold text-red-600">+more</p>
+            <p className="text-xs text-slate-500 mt-0.5">50+ total creator channels</p>
+          </div>
         </div>
       </section>
 
+      {/* Instagram Handles Section */}
       <section className="section-shell pb-20">
         <div className="mb-10 flex items-center gap-3">
           <Instagram className="h-7 w-7 text-pink-500" />
@@ -289,6 +298,12 @@ const Portfolio = () => {
               </div>
             </a>
           ))}
+
+          {/* +more Box for Instagram */}
+          <div className="flex flex-col justify-center items-center rounded-[1.5rem] border border-dashed border-pink-300 bg-pink-50/50 p-4 text-center transition hover:border-pink-400 hover:bg-pink-50">
+            <p className="text-base font-bold text-pink-600">+more</p>
+            <p className="text-xs text-slate-500 mt-0.5">Multiple creator profiles</p>
+          </div>
         </div>
       </section>
 

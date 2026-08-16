@@ -66,21 +66,7 @@ const Services = () => {
         description="Website design & maintenance, social media marketing, reels, branding, and analytics. Choose a service to request a proposal."
       />
 
-      <section className="relative overflow-hidden bg-[var(--gradient-hero)] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(251,191,36,0.25),transparent_22%)]" aria-hidden="true" />
-        <div className="section-shell relative py-16 lg:py-20">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-yellow-400">
-              <Sparkles className="h-3.5 w-3.5 text-[hsl(var(--accent))]" />
-              digital growth services
-            </div>
-            <h1 className="text-4xl font-black tracking-[-0.05em] md:text-6xl text-black">Services designed to move your brand forward.</h1>
-            <p className="mt-5 text-lg text-slate-400 md:text-xl">
-              We blend strategy, design, and execution to help brands look sharper, communicate better, and grow with confidence.
-            </p>
-          </div>
-        </div>
-      </section>
+      
 
       <section className="section-shell py-20">
         <div className="mx-auto max-w-2xl text-center">

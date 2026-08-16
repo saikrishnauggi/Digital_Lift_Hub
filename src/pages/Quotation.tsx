@@ -5,14 +5,15 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { ArrowRight, Check, Download, FileText, Sparkles } from "lucide-react";
 
-const baseItems = [
-  { name: "Website Architecture & UI/UX", qty: 1, unit: "project" },
-  { name: "Website Maintenance & Support", qty: 1, unit: "monthly" },
-  { name: "Social Media Posts", qty: 6, unit: "per month" },
-  { name: "Reels Editing", qty: 4, unit: "per month" },
-  { name: "Branding & Design", qty: 1, unit: "bundle" },
-  { name: "Strategy & Planning", qty: 1, unit: "monthly" },
-  { name: "Analytics Report", qty: 1, unit: "monthly" },
+// Mapped each deliverable item directly to its service key
+const deliverableMapping = [
+  { serviceKey: "Website Design & Development", name: "Website Architecture & UI/UX", qty: 1, unit: "project" },
+  { serviceKey: "Website Maintenance & Servicing", name: "Website Maintenance & Support", qty: 1, unit: "monthly" },
+  { serviceKey: "Social Media Marketing", name: "Social Media Posts", qty: 6, unit: "per month" },
+  { serviceKey: "Reels & Short Video Editing", name: "Reels Editing", qty: 4, unit: "per month" },
+  { serviceKey: "Branding & Graphic Design", name: "Branding & Design", qty: 1, unit: "bundle" },
+  { serviceKey: "Marketing Strategy & Campaign Planning", name: "Strategy & Planning", qty: 1, unit: "monthly" },
+  { serviceKey: "Analytics & Reporting", name: "Analytics Report", qty: 1, unit: "monthly" },
 ];
 
 const services = [
@@ -51,6 +52,11 @@ const Quotation = () => {
   };
 
   const selectedServices = services.filter((s) => selected.has(s.key));
+  
+  // Filter deliverables dynamically based on selected services
+  const activeDeliverables = useMemo(() => {
+    return deliverableMapping.filter((item) => selected.has(item.serviceKey));
+  }, [selected]);
 
   const downloadPdf = async () => {
     if (!quoteRef.current) return;
@@ -118,7 +124,7 @@ const Quotation = () => {
                       type="checkbox"
                       checked={isChecked}
                       onChange={() => toggle(s.key)}
-      aria-label={`Select ${s.key}`}
+                      aria-label={`Select ${s.key}`}
                       className="sr-only"
                     />
                   </label>
@@ -140,6 +146,7 @@ const Quotation = () => {
           </aside>
 
           <section className="space-y-5">
+            {/* The ref container captured for PDF */}
             <div ref={quoteRef} className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_25px_60px_-35px_rgba(15,23,42,0.8)] md:p-8">
               <header className="flex flex-col gap-4 border-b border-slate-200 pb-6 md:flex-row md:items-center md:justify-between">
                 <div>
@@ -175,6 +182,7 @@ const Quotation = () => {
                 </div>
               </div>
 
+              {/* Dynamic Deliverables Table */}
               <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-slate-200">
                 <table className="w-full text-left text-sm">
                   <thead className="bg-slate-50 text-slate-700">
@@ -185,13 +193,21 @@ const Quotation = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {baseItems.map((item) => (
-                      <tr key={item.name} className="border-t border-slate-200">
-                        <td className="px-4 py-3 text-slate-700">{item.name}</td>
-                        <td className="px-4 py-3 text-slate-700">{item.qty}</td>
-                        <td className="px-4 py-3 text-slate-700">{item.unit}</td>
+                    {activeDeliverables.length > 0 ? (
+                      activeDeliverables.map((item) => (
+                        <tr key={item.name} className="border-t border-slate-200">
+                          <td className="px-4 py-3 text-slate-700">{item.name}</td>
+                          <td className="px-4 py-3 text-slate-700">{item.qty}</td>
+                          <td className="px-4 py-3 text-slate-700">{item.unit}</td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr className="border-t border-slate-200">
+                        <td colSpan={3} className="px-4 py-6 text-center text-slate-500">
+                          No services currently selected.
+                        </td>
                       </tr>
-                    ))}
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -226,7 +242,8 @@ const Quotation = () => {
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={downloadPdf}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--primary))] px-6 py-3 text-sm font-semibold text-[hsl(var(--primary-foreground))] shadow-[0_18px_35px_-18px_rgba(15,23,42,0.7)] transition hover:-translate-y-0.5"
+                disabled={selectedServices.length === 0}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--primary))] px-6 py-3 text-sm font-semibold text-[hsl(var(--primary-foreground))] shadow-[0_18px_35px_-18px_rgba(15,23,42,0.7)] transition hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Download className="h-4 w-4" />
                 Download PDF
