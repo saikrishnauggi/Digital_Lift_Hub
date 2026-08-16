@@ -1,75 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Light theme - Digital Lift Hub */
-    --background: 0 0% 100%;
-    --foreground: 230 25% 12%;
+    --background: 210 40% 98%;
+    --foreground: 228 30% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 230 25% 12%;
+    --card-foreground: 228 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 230 25% 12%;
+    --popover-foreground: 228 30% 12%;
 
-    /* Brand: Navy as primary, Gold as accent */
-    --primary: 228 55% 18%; /* Navy */
+    --primary: 228 56% 18%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 225 30% 96%;
-    --secondary-foreground: 228 55% 18%;
+    --secondary: 220 23% 96%;
+    --secondary-foreground: 228 56% 18%;
 
-    --muted: 220 14% 95%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 220 17% 95%;
+    --muted-foreground: 220 10% 42%;
 
-    --accent: 42 95% 55%; /* Golden yellow */
-    --accent-foreground: 230 25% 12%;
+    --accent: 42 96% 56%;
+    --accent-foreground: 228 35% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 90%;
-    --input: 220 13% 90%;
-    --ring: 228 55% 18%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 228 56% 30%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Sidebar tokens */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 230 25% 20%;
-    --sidebar-primary: 228 55% 18%;
+    --sidebar-background: 0 0% 99%;
+    --sidebar-foreground: 228 35% 20%;
+    --sidebar-primary: 228 56% 18%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 225 30% 96%;
-    --sidebar-accent-foreground: 228 55% 18%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 228 55% 40%;
+    --sidebar-accent: 220 23% 96%;
+    --sidebar-accent-foreground: 228 56% 18%;
+    --sidebar-border: 220 15% 90%;
+    --sidebar-ring: 228 56% 35%;
 
-    /* Extras */
     --primary-glow: 228 55% 30%;
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(230 60% 10%) 50%, hsl(228 55% 18%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(42 85% 50%) 100%);
-    --shadow-elegant: 0 12px 40px -12px hsl(var(--primary) / 0.35);
+    --gradient-hero: linear-gradient(135deg, hsl(228 56% 18%) 0%, hsl(220 54% 9%) 48%, hsl(228 50% 22%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(42 96% 56%) 0%, hsl(36 100% 64%) 100%);
+    --shadow-elegant: 0 24px 60px -24px hsl(var(--primary) / 0.45);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 230 25% 8%;
+    --background: 228 35% 8%;
     --foreground: 210 20% 96%;
 
-    --card: 230 25% 10%;
+    --card: 228 28% 11%;
     --card-foreground: 210 20% 96%;
 
-    --popover: 230 25% 10%;
+    --popover: 228 28% 11%;
     --popover-foreground: 210 20% 96%;
 
     --primary: 210 40% 98%;
-    --primary-foreground: 228 55% 18%;
+    --primary-foreground: 228 56% 18%;
 
     --secondary: 228 22% 16%;
     --secondary-foreground: 210 40% 98%;
@@ -77,24 +75,24 @@ All colors MUST be HSL.
     --muted: 228 22% 16%;
     --muted-foreground: 220 10% 70%;
 
-    --accent: 42 95% 55%;
-    --accent-foreground: 230 25% 12%;
+    --accent: 42 96% 56%;
+    --accent-foreground: 228 35% 12%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 228 22% 18%;
     --input: 228 22% 18%;
-    --ring: 228 55% 50%;
+    --ring: 228 56% 50%;
 
-    --sidebar-background: 230 25% 8%;
+    --sidebar-background: 228 35% 8%;
     --sidebar-foreground: 210 20% 96%;
-    --sidebar-primary: 228 55% 50%;
+    --sidebar-primary: 228 56% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 228 22% 16%;
     --sidebar-accent-foreground: 210 20% 96%;
     --sidebar-border: 228 22% 16%;
-    --sidebar-ring: 228 55% 50%;
+    --sidebar-ring: 228 56% 50%;
   }
 }
 
@@ -103,17 +101,48 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    background-image:
+      radial-gradient(circle at top, rgba(255, 186, 73, 0.18), transparent 20%),
+      linear-gradient(180deg, #f8fafc 0%, #f4f7fb 100%);
   }
 }
 
-/* Animation utilities */
 @layer utilities {
-  .hover-scale { @apply transition-transform duration-200 hover:scale-105; }
+  .hover-scale { @apply transition-transform duration-200 hover:scale-[1.02]; }
   .story-link { @apply relative inline-block; }
   .story-link::after {
-    content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: hsl(var(--primary)); transform: scaleX(0); transform-origin: right; transition: transform .3s ease;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.2rem;
+    height: 2px;
+    width: 100%;
+    background: hsl(var(--primary));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .3s ease;
   }
   .story-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  .section-shell {
+    @apply container mx-auto px-4;
+  }
+
+  .glass-panel {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(148,163,184,0.18);
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .gold-ring {
+    box-shadow: 0 0 0 1px rgba(251,191,36,0.5), 0 18px 36px -18px rgba(245,158,11,0.7);
+  }
 }
